@@ -1,0 +1,175 @@
+// class version 55.0 (55)
+// access flags 0x21
+public class Main {
+
+  // compiled from: Main.java
+
+  // access flags 0x1
+  public <init>()V -> inicjalizacja programu
+   L0
+    LINENUMBER 3 L0 
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V -> wywołuje metode Object.<init> i odstawia wynik na stosie
+    RETURN
+   L1
+    LOCALVARIABLE this LMain; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static main([Ljava/lang/String;) -> bytecode wykonania metody Main, w nawiasie argument metody
+	
+   L0	-> L0 oznacza pierwsze wykonanie bytecodu
+    LINENUMBER 5 L0  -> oznacze że wykonie L0 znajduje się na 5 linii kodu źródłowego
+    BIPUSH 7 -> dodaje liczbe na 7, odpowiada ona długości naszej tablicy
+    NEWARRAY T_INT -> tworzy nową tablice int
+    DUP -> duplikuje wartość na szczycie stosu
+    ICONST_0 -> umieszcza wartość 0 na stosie, będzie odpowiedzialne za miejsce w tablicy
+    ICONST_2 -> umieszcza wartość 2 na stosie. będzie odpowiedzialne za wartość dodaną do tablicy
+    IASTORE -> umieszcza wartość ze stosu do tablicy
+    DUP -> duplikuje wartość na szczycie stosu
+    ICONST_1 -> umieszcza wartość 1 na stosie, będzie odpowiedzialne za miejsce w tablicy
+    ICONST_4 -> umieszcza wartość 4 na stosie. będzie odpowiedzialne za wartość dodaną do tablicy
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_5
+    IASTORE
+    DUP
+    ICONST_3
+    ICONST_1
+    IASTORE
+    DUP
+    ICONST_4
+    SIPUSH 2137 -> umieszcza wartośći 2137 na stosie, od ICONST różni się tym że pushuje wartość short zamiast int
+    IASTORE
+    DUP
+    ICONST_5
+    BIPUSH 9
+    IASTORE
+    DUP
+    BIPUSH 6
+    BIPUSH 6
+    IASTORE
+    ASTORE 1 -> zapisuje referencje ze stosu do zmiennej lokalnej o indeksie 1
+   L1
+    LINENUMBER 6 L1 -> zaczyna się w linii 6 kodu źródłowego
+    ICONST_0
+    ISTORE 2 -> zapisuje int ze stosu do zmiennej lokalnej o indeksie 2
+   L2
+   FRAME APPEND [[I I]
+    ILOAD 2 -> wczytuje inta ze zmiennej lokalnej o indeksie 2 na stos
+    ALOAD 1 -> wczytuje referencje ze zmiennej lokanlnej o indeksie 1 na stos
+    ARRAYLENGTH -> wczytuje rozmiar tablicy
+    ICONST_1 
+    ISUB -> odejmowanie 2 pierwszych liczb na stosie
+    IF_ICMPGE L3 -> porównanie wartości dwóch intów, jeśli jest prawdą idziemy do L3
+   L4
+    LINENUMBER 7 L4
+    ICONST_0
+    ISTORE 3
+   L5
+   FRAME APPEND [I]
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    ILOAD 2
+    ISUB
+    ICONST_1
+    ISUB
+    IF_ICMPGE L6 -> porównanie wartości dwóch intów, jeśli jest 1 wartość jest większa od 2 to idziemy do L6
+   L7
+    LINENUMBER 8 L7
+    ALOAD 1
+    ILOAD 3
+    IALOAD -> wczytanie wartości int z tablicy
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    IADD -> dodaje dwa inty
+    IALOAD
+    IF_ICMPLE L8 -> porównanie wartości dwóch intów, jeśli jest 1 wartość jest mniejsza lub równa od 2 to idziemy do L6
+   L9
+    LINENUMBER 9 L9
+    ALOAD 1
+    ILOAD 3
+    IALOAD
+    ISTORE 4
+   L10
+    LINENUMBER 10 L10
+    ALOAD 1
+    ILOAD 3
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    IADD
+    IALOAD
+    IASTORE
+   L11
+    LINENUMBER 11 L11
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    IADD
+    ILOAD 4
+    IASTORE
+   L8
+    LINENUMBER 7 L8
+   FRAME SAME
+    IINC 3 1 -> inkrementuj zmienną o indeksie 3
+    GOTO L5 -> przejdź do L5
+   L6
+    LINENUMBER 6 L6
+   FRAME CHOP 1
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 14 L3
+   FRAME CHOP 1
+    ALOAD 1
+    INVOKESTATIC Main.printArray ([I)V -> wywołanie metody statycznej printArray z klasy Main
+   L12
+    LINENUMBER 15 L12
+    RETURN -> zwraca void z metody, czyli koniec wykonywania
+   L13
+    LOCALVARIABLE temp I L10 L8 4
+    LOCALVARIABLE j I L5 L6 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE args [Ljava/lang/String; L0 L13 0
+    LOCALVARIABLE arr [I L1 L13 1
+    MAXSTACK = 5
+    MAXLOCALS = 5
+
+  // access flags 0x9
+  public static printArray([I)V -> bytecode wykonania metody printArray
+   L0
+    LINENUMBER 18 L0
+    ICONST_0
+    ISTORE 1
+   L1
+   FRAME APPEND [I]
+    ILOAD 1
+    ALOAD 0
+    ARRAYLENGTH
+    IF_ICMPGE L2
+   L3
+    LINENUMBER 19 L3
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream; -> pobranie wartości statycznego pola System.out, a następnie pobiera referencje do obiektu PrintStream i umieszcza na stosie
+    ALOAD 0
+    ILOAD 1
+    IALOAD
+    INVOKEVIRTUAL java/io/PrintStream.println (I)V -> wywołuje niestatyczną metode println z obiektu PrintStream
+   L4
+    LINENUMBER 18 L4
+    IINC 1 1
+    GOTO L1
+   L2
+    LINENUMBER 21 L2
+   FRAME CHOP 1
+    RETURN
+   L5
+    LOCALVARIABLE i I L1 L2 1
+    LOCALVARIABLE array [I L0 L5 0
+    MAXSTACK = 3
+    MAXLOCALS = 2
+}
